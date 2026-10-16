@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Solutions Air Conditioning & Heating | Premier HVAC Excellence in Cypress, TX</title>
+    <meta name="description" content="Premier family-operated HVAC service in Cypress, Katy & Northwest Houston. NATE-certified technicians delivering precision repair, high-efficiency installations & transparent diagnostics.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B1312',
+                            card: '#13211F',
+                            surface: '#1A2E2C',
+                            copper: '#D97736',
+                            copperHover: '#BF6224',
+                            copperGlow: 'rgba(217, 119, 54, 0.4)',
+                            teal: '#3E8E88',
+                            tealLight: '#62B6B0',
+                            accent: '#38BDF8',
+                            bgLight: '#FAF8F5',
+                            cardLight: '#FFFFFF',
+                            textDark: '#0A1211'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    boxShadow: {
+                        'glow-copper': '0 0 35px -5px rgba(217, 119, 54, 0.45)',
+                        'glow-teal': '0 0 35px -5px rgba(62, 142, 136, 0.35)',
+                        'glass-card': '0 20px 40px -15px rgba(0,0,0,0.4)',
+                        'floating': '0 30px 60px -12px rgba(11, 19, 18, 0.25)'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF8F5;
+            color: #0A1211;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* High-end Glassmorphic Panels */
+        .glass-dark-card {
+            background: rgba(19, 33, 31, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-nav-header {
+            background: rgba(11, 19, 18, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.4s ease;
+        }
+
+        .glass-nav-header.scrolled {
+            background: rgba(11, 19, 18, 0.95);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(217, 119, 54, 0.3);
+        }
+
+        .glass-light-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(10, 18, 17, 0.08);
+        }
+
+        /* Animated Ambient Particle Airflow Canvas */
+        #airflowCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.65;
+        }
+
+        /* Interactive Shimmer Effects */
+        .btn-glow-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-glow-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 70%
+            );
+            transform: rotate(30deg);
+            transition: transform 0.8s ease;
+        }
+        .btn-glow-shimmer:hover::after {
+            transform: rotate(30deg) translate(100%, 100%);
+        }
+
+        /* Image hover zooms */
+        .img-zoom-hover {
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+        }
+        .img-zoom-hover:hover {
+            transform: scale(1.05);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B1312;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D97736;
+            border-radius: 5px;
+        }
+
+        /* Custom range sliders */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #D97736;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(217, 119, 54, 0.8);
+            border: 2px solid #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-brand-bgLight text-brand-textDark antialiased selection:bg-brand-copper selection:text-white">
+
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 glass-nav-header py-3.5 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            
+            <!-- Logo Section -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="relative w-11 h-11 bg-brand-card rounded-2xl flex items-center justify-center p-2 shadow-lg group-hover:shadow-glow-copper transition duration-500 overflow-hidden border border-white/20">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-white fill-current transform group-hover:rotate-90 transition duration-700 ease-out">
+                        <path d="M50 10 L60 38 L90 50 L60 62 L50 90 L38 62 L10 50 L38 38 Z" fill="none" stroke="#62B6B0" stroke-width="7" stroke-linecap="round"/>
+                        <circle cx="50" cy="50" r="14" fill="#D97736"/>
+                        <circle cx="50" cy="50" r="6" fill="#FFFFFF"/>
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-copper/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-black text-xl tracking-tight leading-none text-white group-hover:text-brand-copper transition duration-300 font-heading">AIR SOLUTIONS</span>
+                    <span class="text-[9px] font-extrabold tracking-[0.22em] text-brand-copper uppercase mt-1">AC & Heating · Cypress, TX</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-bold text-xs uppercase tracking-wider text-white/90">
+                <a href="#services" class="hover:text-brand-copper transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-copper hover:after:w-full after:transition-all">Services</a>
+                <a href="#diagnostics" class="hover:text-brand-copper transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-copper hover:after:w-full after:transition-all">Diagnostics</a>
+                <a href="#calculator" class="hover:text-brand-copper transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-copper hover:after:w-full after:transition-all">Savings Estimator</a>
+                <a href="#comparison" class="hover:text-brand-copper transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-copper hover:after:w-full after:transition-all">Equipment Upgrade</a>
+                <a href="#areas" class="hover:text-brand-copper transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-copper hover:after:w-full after:transition-all">Service Areas</a>
+            </nav>
+
+            <!-- Quick Action Call/Booking -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <a href="tel:7133672038" class="hidden sm:inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl border border-white/20 transition backdrop-blur-md">
+                    <i class="fa-solid fa-phone text-brand-copper animate-pulse"></i>
+                    <span>(713) 367-2038</span>
+                </a>
+                <button onclick="openBookingModal()" class="inline-flex items-center gap-2 bg-brand-copper hover:bg-brand-copperHover text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl shadow-glow-copper transition-all duration-300 btn-glow-shimmer cursor-pointer">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Book Service</span>
+                </button>
+                <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition" aria-label="Toggle Mobile Navigation">
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-dark/95 backdrop-blur-2xl text-white px-6 py-6 mt-3 space-y-4 shadow-2xl border border-white/10 rounded-2xl">
+            <nav class="flex flex-col space-y-3 font-semibold text-sm tracking-wide">
+                <a href="#services" class="mobile-link py-2 border-b border-white/10 hover:text-brand-copper flex justify-between items-center">Services <i class="fa-solid fa-chevron-right text-xs opacity-50"></i></a>
+                <a href="#diagnostics" class="mobile-link py-2 border-b border-white/10 hover:text-brand-copper flex justify-between items-center">Diagnostics <i class="fa-solid fa-chevron-right text-xs opacity-50"></i></a>
+                <a href="#calculator" class="mobile-link py-2 border-b border-white/10 hover:text-brand-copper flex justify-between items-center">Savings Estimator <i class="fa-solid fa-chevron-right text-xs opacity-50"></i></a>
+                <a href="#comparison" class="mobile-link py-2 border-b border-white/10 hover:text-brand-copper flex justify-between items-center">Equipment Upgrade <i class="fa-solid fa-chevron-right text-xs opacity-50"></i></a>
+                <a href="#areas" class="mobile-link py-2 border-b border-white/10 hover:text-brand-copper flex justify-between items-center">Service Coverage <i class="fa-solid fa-chevron-right text-xs opacity-50"></i></a>
+                <a href="#contact" class="mobile-link py-2 hover:text-brand-copper flex justify-between items-center">Contact & Consultation <i class="fa-solid fa-chevron-right text-xs opacity-50"></i></a>
+            </nav>
+            <div class="pt-2 flex flex-col gap-3">
+                <a href="tel:7133672038" class="flex items-center justify-center gap-2 bg-brand-copper text-white py-3 rounded-xl font-bold text-sm shadow-md">
+                    <i class="fa-solid fa-phone"></i> Call (713) 367-2038
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center pt-32 pb-24 lg:pt-40 lg:pb-32 bg-brand-dark text-white border-b border-white/10 overflow-hidden">
+        <!-- Background Hero Image with Dark Vignette Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/KJHD/main/b6f115a7-a107-4388-9d8d-886d2176007c.jpg" 
+                 alt="Air Solutions HVAC Hero Background" 
+                 class="w-full h-full object-cover object-center filter brightness-50 contrast-125 scale-105"
+                 onerror="this.src='https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1600&auto=format&fit=crop'">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-dark/50"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/60"></div>
+            <!-- Glow Accents -->
+            <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-copper/20 rounded-full filter blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-brand-teal/20 rounded-full filter blur-[120px] pointer-events-none"></div>
+        </div>
+
+        <canvas id="airflowCanvas"></canvas>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Left Hero Text Content -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Live Status Badge -->
+                    <div class="inline-flex items-center gap-3 bg-white/10 border border-white/20 px-4 py-2 rounded-full backdrop-blur-md shadow-lg">
+                        <span class="flex h-3 w-3 relative">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-white/90">CYPRESS, TX · SAME-DAY DISPATCH AVAILABLE</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-heading">
+                        Precision Climate Solutions.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-copper via-brand-copper/90 to-amber-300 drop-shadow-sm">Honest Guidance.</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-white/80 leading-relaxed max-w-2xl font-normal">
+                        From emergency cooling repairs to custom high-efficiency SEER2 replacements, Air Solutions delivers trustworthy residential & commercial HVAC expertise across Cypress & Katy.
+                    </p>
+
+                    <!-- Interactive CTAs -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <a href="tel:7133672038" class="inline-flex items-center justify-center gap-3.5 bg-brand-copper hover:bg-brand-copperHover text-white font-extrabold px-8 py-4 rounded-2xl shadow-glow-copper transition-all duration-300 text-base btn-glow-shimmer">
+                            <i class="fa-solid fa-phone text-lg"></i>
+                            <span>Call (713) 367-2038</span>
+                        </a>
+                        <button onclick="openBookingModal()" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-extrabold px-8 py-4 rounded-2xl border border-white/20 backdrop-blur-md transition-all duration-300 text-base">
+                            <span>Schedule Inspection</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Highlighted Guarantees -->
+                    <div class="pt-8 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-bold text-white/80 uppercase tracking-wider">
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-shield-halved text-brand-copper text-lg"></i>
+                            <span>Repair First Philosophy</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-award text-brand-tealLight text-lg"></i>
+                            <span>NATE-Certified Techs</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-receipt text-amber-400 text-lg"></i>
+                            <span>Upfront Clear Pricing</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Hero Visual Collage Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-3xl overflow-hidden glass-dark-card p-3 shadow-2xl border border-white/20 group">
+                        <div class="relative h-[440px] rounded-2xl overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/KJHD/refs/heads/main/Screenshot%202026-10-14%20033057.png" 
+                                 alt="NATE-Certified Technician inspecting condensing unit in Cypress, TX" 
+                                 class="w-full h-full object-cover img-zoom-hover"
+                                 onerror="this.src='https://placehold.co/600x600/0B1312/FFFFFF?text=Precision+HVAC+Diagnostic'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+                            
+                            <!-- Floating Visual Badge Overlay -->
+                            <div class="absolute bottom-5 left-5 right-5 p-5 rounded-2xl glass-dark-card border border-white/15 text-white space-y-1.5 backdrop-blur-xl">
+                                <div class="flex justify-between items-center">
+                                    <span class="bg-brand-copper text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-md">Live Inspection</span>
+                                    <span class="text-xs font-mono text-brand-tealLight"><i class="fa-solid fa-bolt text-amber-400 mr-1"></i> Diagnostic Mode</span>
+                                </div>
+                                <h3 class="font-bold text-base font-heading">Outdoor Condenser Precision Diagnostic</h3>
+                                <p class="text-xs text-white/70">Testing capacitor capacitance, motor draw, and R410A operating pressures.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Quality Badge Offset -->
+                    <div class="absolute -top-6 -left-6 hidden sm:flex bg-brand-dark/90 backdrop-blur-2xl p-4 rounded-2xl shadow-floating border border-white/20 items-center gap-4 animate-float">
+                        <div class="w-12 h-12 rounded-xl bg-brand-copper/20 text-brand-copper flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-star text-amber-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-white/60 font-extrabold uppercase tracking-widest">Trust Standard</p>
+                            <p class="text-base font-black text-white font-heading">17+ Years Local Excellence</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="diagnostics" class="py-24 bg-brand-bgLight border-b border-black/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-extrabold text-brand-copper uppercase tracking-widest bg-brand-copper/10 px-4 py-1.5 rounded-full border border-brand-copper/20">Interactive Diagnostic Tool</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-brand-textDark tracking-tight font-heading">
+                    What symptoms is your system showing?
+                </h2>
+                <p class="text-brand-textDark/70 text-base">
+                    Select a symptom to diagnose probable HVAC faults before requesting a NATE-certified technician inspection.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-brand-textDark/10 shadow-floating max-w-5xl mx-auto">
+                
+                <!-- Symptom Selector Buttons Grid -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    <button onclick="selectDiag('no-cool', this)" class="diag-btn active bg-brand-dark text-white p-5 rounded-2xl text-left hover:bg-brand-dark transition duration-300 flex flex-col justify-between h-36 border-2 border-brand-dark shadow-md cursor-pointer">
+                        <div class="w-10 h-10 rounded-xl bg-brand-copper/20 text-brand-copper flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-temperature-arrow-up"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">System Blowing Warm Air</h4>
+                            <p class="text-[11px] text-white/60 mt-0.5">AC running but home is hot</p>
+                        </div>
+                    </button>
+
+                    <button onclick="selectDiag('no-power', this)" class="diag-btn bg-brand-bgLight text-brand-textDark p-5 rounded-2xl text-left hover:bg-black/5 transition duration-300 flex flex-col justify-between h-36 border border-black/10 shadow-sm cursor-pointer">
+                        <div class="w-10 h-10 rounded-xl bg-brand-teal/20 text-brand-teal flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-power-off"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">AC Will Not Turn On</h4>
+                            <p class="text-[11px] text-brand-textDark/60 mt-0.5">Complete power shut down</p>
+                        </div>
+                    </button>
+
+                    <button onclick="selectDiag('noises', this)" class="diag-btn bg-brand-bgLight text-brand-textDark p-5 rounded-2xl text-left hover:bg-black/5 transition duration-300 flex flex-col justify-between h-36 border border-black/10 shadow-sm cursor-pointer">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Loud Noises / Buzzing</h4>
+                            <p class="text-[11px] text-brand-textDark/60 mt-0.5">Squealing, grinding or chatter</p>
+                        </div>
+                    </button>
+
+                    <button onclick="selectDiag('airflow', this)" class="diag-btn bg-brand-bgLight text-brand-textDark p-5 rounded-2xl text-left hover:bg-black/5 transition duration-300 flex flex-col justify-between h-36 border border-black/10 shadow-sm cursor-pointer">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-600 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Weak Vents Airflow</h4>
+                            <p class="text-[11px] text-brand-textDark/60 mt-0.5">Frozen coils or vent block</p>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Dynamic Diagnostic Output Area -->
+                <div id="diag-display" class="bg-brand-bgLight p-6 sm:p-8 rounded-2xl border border-black/10 space-y-6">
+                    <div class="flex flex-wrap justify-between items-center gap-4 pb-4 border-b border-black/10">
+                        <div class="flex items-center gap-3">
+                            <span class="w-3 h-3 rounded-full bg-brand-copper animate-ping"></span>
+                            <h3 id="diag-title" class="font-black text-lg text-brand-textDark font-heading">Diagnosing: AC Blowing Warm Air</h3>
+                        </div>
+                        <span id="diag-severity" class="bg-red-100 text-red-700 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">High Priority</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-textDark/60">Possible Technical Causes:</h4>
+                            <ul id="diag-causes" class="text-sm space-y-2 text-brand-textDark/80">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-red-500"></i> Failed dual-run start capacitor</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-red-500"></i> Low refrigerant leak (R410A / R22)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-red-500"></i> Tripped outdoor thermal breaker switch</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-textDark/60">Air Solutions Recommended Action:</h4>
+                            <p id="diag-action" class="text-sm text-brand-textDark/80 leading-relaxed bg-white p-4 rounded-xl border border-black/5">
+                                Perform electrical contactor test, verify outdoor condenser voltage draw, and conduct digital manifold pressure check.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <p class="text-xs text-brand-textDark/60 font-semibold">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> Running an overheating compressor can permanently damage components.
+                        </p>
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-brand-copper hover:bg-brand-copperHover text-white text-xs font-extrabold px-6 py-3.5 rounded-xl transition shadow-glow-copper uppercase tracking-wider cursor-pointer">
+                            Book Technician Diagnostic Inspection
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-b border-black/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Visual Card with Multimeter Inspection Photo (Image 2) -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-floating border-4 border-brand-bgLight bg-brand-dark group">
+                        <img src="https://raw.githubusercontent.com/CreativeTugsDotCom/KJHD/refs/heads/main/Screenshot%202026-10-14%20034103.png" 
+                             alt="Technician inspecting electrical multimeter reading on HVAC unit" 
+                             class="w-full h-[500px] object-cover img-zoom-hover"
+                             onerror="this.src='https://placehold.co/600x600/0B1312/FFFFFF?text=HVAC+Multimeter+Testing'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent"></div>
+                        
+                        <!-- Image Caption Overlay -->
+                        <div class="absolute bottom-6 left-6 right-6 p-6 rounded-2xl glass-dark-card text-white space-y-1.5 backdrop-blur-xl">
+                            <div class="flex justify-between items-center">
+                                <span class="bg-brand-teal text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-md">Live Electrical Test</span>
+                                <span class="text-xs font-mono text-brand-tealLight"><i class="fa-solid fa-microchip mr-1"></i> Microfarad Diagnostic</span>
+                            </div>
+                            <h3 class="font-bold text-base font-heading">Component Integrity Verification</h3>
+                            <p class="text-xs text-white/70">We test exact microfarad tolerance on capacitors and check amp draw before recommending component replacement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Narrative Column -->
+                <div class="lg:col-span-6 space-y-8">
+                    <div>
+                        <span class="text-xs font-extrabold text-brand-copper uppercase tracking-widest bg-brand-copper/10 px-4 py-1.5 rounded-full border border-brand-copper/20">The Air Solutions Guarantee</span>
+                        <h2 class="text-3xl sm:text-5xl font-black text-brand-textDark tracking-tight mt-4 font-heading leading-tight">
+                            We repair first.<br>We replace only when necessary.
+                        </h2>
+                        <p class="text-brand-textDark/80 text-base sm:text-lg mt-4 leading-relaxed">
+                            Unlike corporate HVAC conglomerates focused on pushing expensive entire system replacements, our NATE-certified technicians focus on pinpointing the exact failure and offering transparent repair choices.
+                        </p>
+                    </div>
+
+                    <!-- 3 Step Process List -->
+                    <div class="space-y-4">
+                        <div class="flex gap-5 items-center p-4 rounded-2xl bg-brand-bgLight border border-black/5">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-dark text-brand-copper font-black text-xl flex items-center justify-center shrink-0 font-heading shadow-md">
+                                01
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-brand-textDark text-base font-heading">Thorough Precision Diagnostic</h3>
+                                <p class="text-xs text-brand-textDark/70 mt-0.5">Detailed electrical and thermal testing to pinpoint the exact failure point.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5 items-center p-4 rounded-2xl bg-brand-bgLight border border-black/5">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-dark text-brand-copper font-black text-xl flex items-center justify-center shrink-0 font-heading shadow-md">
+                                02
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-brand-textDark text-base font-heading">Upfront Clear Options</h3>
+                                <p class="text-xs text-brand-textDark/70 mt-0.5">We explain repair vs. replace scenarios in plain language with zero hidden fees.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5 items-center p-4 rounded-2xl bg-brand-bgLight border border-black/5">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-dark text-brand-copper font-black text-xl flex items-center justify-center shrink-0 font-heading shadow-md">
+                                03
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-brand-textDark text-base font-heading">Guaranteed Quality Workmanship</h3>
+                                <p class="text-xs text-brand-textDark/70 mt-0.5">Backed by parts & labor warranties and ongoing maintenance coverage.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button onclick="openBookingModal()" class="inline-flex items-center gap-3 bg-brand-dark hover:bg-black text-white font-extrabold px-8 py-4 rounded-xl shadow-lg transition text-sm uppercase tracking-wider cursor-pointer">
+                            <span>Request Service Evaluation</span>
+                            <i class="fa-solid fa-arrow-right text-xs text-brand-copper"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-24 bg-brand-dark text-white border-b border-white/10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-extrabold text-brand-copper uppercase tracking-widest bg-brand-copper/20 px-4 py-1.5 rounded-full border border-brand-copper/30">SEER2 Savings Calculator</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight font-heading leading-tight">
+                        See how much you could save on electric bills.
+                    </h2>
+                    <p class="text-white/80 text-base leading-relaxed">
+                        In the harsh Texas summer heat, older 10 SEER units consume vast amounts of power. Upgrading to a modern 16+ SEER2 variable-speed system dramatically cuts electric bills.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-xs text-white/70 space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-brand-tealLight">
+                            <i class="fa-solid fa-leaf"></i> Texas Efficiency Bonus
+                        </div>
+                        <p>Modern variable-speed systems regulate indoor humidity far better, allowing you to feel cooler at higher thermostat settings.</p>
+                    </div>
+                </div>
+
+                <!-- Calculator Visual Card -->
+                <div class="lg:col-span-7 bg-brand-card p-8 sm:p-12 rounded-3xl border border-white/10 shadow-2xl">
+                    <div class="space-y-8">
+                        
+                        <!-- Slider 1: Current SEER -->
+                        <div>
+                            <div class="flex justify-between items-center text-sm font-bold mb-3">
+                                <span class="text-white/80">Current System Efficiency Rating:</span>
+                                <span id="seer-display" class="text-brand-copper font-mono text-xl font-black bg-brand-copper/10 px-3 py-1 rounded-lg border border-brand-copper/30">10 SEER</span>
+                            </div>
+                            <input type="range" id="seer-range" min="8" max="14" value="10" step="1" oninput="calculateSavings()" class="w-full h-2.5 bg-white/10 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-[10px] text-white/40 mt-1 font-mono">
+                                <span>8 SEER (Older)</span>
+                                <span>10 SEER (Standard)</span>
+                                <span>14 SEER (Older Baseline)</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider 2: Monthly Electric Bill -->
+                        <div>
+                            <div class="flex justify-between items-center text-sm font-bold mb-3">
+                                <span class="text-white/80">Average Peak Summer Electric Bill ($):</span>
+                                <span id="bill-display" class="text-brand-tealLight font-mono text-xl font-black bg-brand-teal/10 px-3 py-1 rounded-lg border border-brand-teal/30">$400 / mo</span>
+                            </div>
+                            <input type="range" id="bill-range" min="150" max="900" value="400" step="25" oninput="calculateSavings()" class="w-full h-2.5 bg-white/10 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Output Metrics Box -->
+                        <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 text-center">
+                                <p class="text-xs text-white/60 font-extrabold uppercase tracking-wider">Estimated Annual Savings</p>
+                                <p id="annual-savings" class="text-3xl sm:text-4xl font-black text-brand-copper mt-1 font-heading">$864 / yr</p>
+                            </div>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/10 text-center">
+                                <p class="text-xs text-white/60 font-extrabold uppercase tracking-wider">5-Year Utility Savings</p>
+                                <p id="five-savings" class="text-3xl sm:text-4xl font-black text-brand-tealLight mt-1 font-heading">$4,320</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <button onclick="openBookingModal()" class="w-full bg-brand-copper hover:bg-brand-copperHover text-white font-extrabold py-4 rounded-xl transition shadow-glow-copper text-center text-xs uppercase tracking-wider btn-glow-shimmer cursor-pointer">
+                                Request a Free High-Efficiency Replacement Estimate
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="py-24 bg-white border-b border-black/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-extrabold text-brand-copper uppercase tracking-widest bg-brand-copper/10 px-4 py-1.5 rounded-full border border-brand-copper/20">Technology Contrast</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-brand-textDark tracking-tight font-heading">
+                    How Modern HVAC Transforms Your Home
+                </h2>
+                <p class="text-brand-textDark/70 text-base">
+                    Compare outdated single-stage equipment against state-of-the-art variable speed inverter climate systems.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Old System Box -->
+                <div class="bg-red-50/50 p-8 rounded-3xl border border-red-200 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-red-100 text-red-700 text-xs font-extrabold px-3.5 py-1.5 rounded-lg uppercase tracking-wider">Outdated Systems (10-12 SEER)</span>
+                        <i class="fa-solid fa-triangle-exclamation text-red-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-textDark font-heading">Outdated Single-Stage Unit</h3>
+                    <ul class="space-y-4 text-sm text-brand-textDark/80">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-xmark text-red-500 mt-1"></i>
+                            <span><strong>Loud Blast Cycling:</strong> Harsh ON/OFF noise spikes throughout the night.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-xmark text-red-500 mt-1"></i>
+                            <span><strong>Poor Humidity Control:</strong> Feels sticky indoors even at 72°F.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-xmark text-red-500 mt-1"></i>
+                            <span><strong>High Power Surges:</strong> Massive electric bills during Cypress summers.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Modern System Box -->
+                <div class="bg-emerald-50/50 p-8 rounded-3xl border border-emerald-200 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3.5 py-1.5 rounded-lg uppercase tracking-wider">Air Solutions Modern SEER2</span>
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-textDark font-heading">Inverter Variable-Speed Unit</h3>
+                    <ul class="space-y-4 text-sm text-brand-textDark/80">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                            <span><strong>Whisper-Quiet Operation:</strong> Runs smoothly as low as 45 decibels.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                            <span><strong>Precision Dehumidification:</strong> Crisp, clean air comfort at any temperature.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                            <span><strong>Up to 45% Energy Reduction:</strong> Save hundreds every cooling season.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-brand-bgLight border-b border-black/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-extrabold text-brand-copper uppercase tracking-widest bg-brand-copper/10 px-4 py-1.5 rounded-full border border-brand-copper/20">Our Core Capabilities</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-brand-textDark tracking-tight font-heading">
+                    Full-Spectrum Residential & Commercial HVAC
+                </h2>
+                <p class="text-brand-textDark/70 text-base">
+                    Engineered precision for cooling, heating, ductwork, and indoor air quality in Texas.
+                </p>
+            </div>
+
+            <!-- Service Cards Composition Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service Card 1: AC Repair -->
+                <div class="bg-white rounded-3xl p-8 border border-black/10 shadow-sm hover:shadow-floating transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-copper/10 text-brand-copper flex items-center justify-center text-2xl font-bold group-hover:bg-brand-copper group-hover:text-white transition duration-300">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-brand-copper">Emergency & Maintenance</span>
+                        <h3 class="text-xl font-bold text-brand-textDark font-heading">Air Conditioning & Heating Repair</h3>
+                        <p class="text-brand-textDark/70 text-sm leading-relaxed">
+                            Fast, reliable diagnostic and repair services for compressors, capacitors, fan motors, thermostats, and electrical contactors.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <button onclick="openBookingModal()" class="inline-flex items-center gap-2 text-brand-copper font-bold text-xs uppercase tracking-wider group-hover:translate-x-1 transition cursor-pointer">
+                            <span>Request Repair</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 2: System Installation (With 1 Installation Photo - Image 3) -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-black/10 shadow-sm hover:shadow-floating transition-all duration-300 flex flex-col justify-between group">
+                    <div class="relative h-48 overflow-hidden bg-brand-dark">
+                        <img src="https://images.unsplash.com/photo-1542013936693-8846383c2763?q=80&w=800&auto=format&fit=crop" 
+                             alt="High-efficiency outdoor compressor system replacement installation in Cypress TX" 
+                             class="w-full h-full object-cover img-zoom-hover"
+                             onerror="this.src='https://placehold.co/600x400/0B1312/FFFFFF?text=High-Efficiency+System+Installation'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 text-white text-xs font-bold"><i class="fa-solid fa-certificate text-brand-copper mr-1"></i> SEER2 Certified Installations</span>
+                    </div>
+                    <div class="p-8 pt-4 space-y-3">
+                        <h3 class="text-xl font-bold text-brand-textDark font-heading">System Installation & Replacement</h3>
+                        <p class="text-brand-textDark/70 text-sm leading-relaxed">
+                            Turnkey high-efficiency air conditioner, heat pump, and furnace replacements tailored specifically to your home square footage.
+                        </p>
+                        <div class="pt-2">
+                            <button onclick="openBookingModal()" class="inline-flex items-center gap-2 text-brand-copper font-bold text-xs uppercase tracking-wider group-hover:translate-x-1 transition cursor-pointer">
+                                <span>Get Replacement Estimate</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3: Seasonal Maintenance -->
+                <div class="bg-white rounded-3xl p-8 border border-black/10 shadow-sm hover:shadow-floating transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-teal/10 text-brand-teal flex items-center justify-center text-2xl font-bold group-hover:bg-brand-teal group-hover:text-white transition duration-300">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-brand-teal">Preventative Care</span>
+                        <h3 class="text-xl font-bold text-brand-textDark font-heading">Comprehensive Tune-Ups</h3>
+                        <p class="text-brand-textDark/70 text-sm leading-relaxed">
+                            Multi-point seasonal maintenance to clean condenser coils, inspect condensate drains, check refrigerant, and extend system lifespan.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <button onclick="openBookingModal()" class="inline-flex items-center gap-2 text-brand-copper font-bold text-xs uppercase tracking-wider group-hover:translate-x-1 transition cursor-pointer">
+                            <span>Book Tune-Up</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 4: Ductwork -->
+                <div class="bg-white rounded-3xl p-8 border border-black/10 shadow-sm hover:shadow-floating transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl font-bold group-hover:bg-amber-500 group-hover:text-white transition duration-300">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-amber-600">Airflow Balance</span>
+                        <h3 class="text-xl font-bold text-brand-textDark font-heading">Duct Modification & Sealing</h3>
+                        <p class="text-brand-textDark/70 text-sm leading-relaxed">
+                            Fix hot and cold spots throughout your home by repairing crushed, leaky, or uninsulated attic air ducts.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <button onclick="openBookingModal()" class="inline-flex items-center gap-2 text-brand-copper font-bold text-xs uppercase tracking-wider group-hover:translate-x-1 transition cursor-pointer">
+                            <span>Inspect Ductwork</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 5: Indoor Air Quality -->
+                <div class="bg-white rounded-3xl p-8 border border-black/10 shadow-sm hover:shadow-floating transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-sky-500/10 text-sky-600 flex items-center justify-center text-2xl font-bold group-hover:bg-sky-500 group-hover:text-white transition duration-300">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-sky-600">Purification</span>
+                        <h3 class="text-xl font-bold text-brand-textDark font-heading">Whole-Home Air Quality & UV</h3>
+                        <p class="text-brand-textDark/70 text-sm leading-relaxed">
+                            Eliminate allergens, dust, and mold spores with whole-house UV light purifiers and media filtration systems.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <button onclick="openBookingModal()" class="inline-flex items-center gap-2 text-brand-copper font-bold text-xs uppercase tracking-wider group-hover:translate-x-1 transition cursor-pointer">
+                            <span>Explore Air Quality</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service Card 6: Drain & Vent Care -->
+                <div class="bg-white rounded-3xl p-8 border border-black/10 shadow-sm hover:shadow-floating transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-600 flex items-center justify-center text-2xl font-bold group-hover:bg-purple-500 group-hover:text-white transition duration-300">
+                            <i class="fa-solid fa-faucet-drip"></i>
+                        </div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-purple-600">Specialty</span>
+                        <h3 class="text-xl font-bold text-brand-textDark font-heading">Condensate Drain & Dryer Vent Care</h3>
+                        <p class="text-brand-textDark/70 text-sm leading-relaxed">
+                            Prevent attic water overflow damage and dryer fire risks with specialized drain clearing and vent safety flushes.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <button onclick="openBookingModal()" class="inline-flex items-center gap-2 text-brand-copper font-bold text-xs uppercase tracking-wider group-hover:translate-x-1 transition cursor-pointer">
+                            <span>Request Maintenance</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="areas" class="py-24 bg-white border-b border-black/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-extrabold text-brand-copper uppercase tracking-widest bg-brand-copper/10 px-4 py-1.5 rounded-full border border-brand-copper/20">Local Coverage</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-brand-textDark tracking-tight font-heading">
+                    Proudly Serving Northwest Houston
+                </h2>
+                <p class="text-brand-textDark/70 text-base">
+                    Fast response times across Cypress, Katy, and surrounding West Houston communities.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                
+                <div class="bg-brand-bgLight p-6 rounded-2xl border border-black/5 flex items-center gap-4 hover:border-brand-copper transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-dark text-brand-copper flex items-center justify-center text-xl font-bold group-hover:bg-brand-copper group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-textDark font-heading">Cypress</h3>
+                        <p class="text-xs text-brand-textDark/50 font-semibold">Primary Hub</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-bgLight p-6 rounded-2xl border border-black/5 flex items-center gap-4 hover:border-brand-copper transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-dark text-brand-copper flex items-center justify-center text-xl font-bold group-hover:bg-brand-copper group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-textDark font-heading">Katy</h3>
+                        <p class="text-xs text-brand-textDark/50 font-semibold">Full Coverage</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-bgLight p-6 rounded-2xl border border-black/5 flex items-center gap-4 hover:border-brand-copper transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-dark text-brand-copper flex items-center justify-center text-xl font-bold group-hover:bg-brand-copper group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-textDark font-heading">NW Houston</h3>
+                        <p class="text-xs text-brand-textDark/50 font-semibold">Full Coverage</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-bgLight p-6 rounded-2xl border border-black/5 flex items-center gap-4 hover:border-brand-copper transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-dark text-brand-copper flex items-center justify-center text-xl font-bold group-hover:bg-brand-copper group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-textDark font-heading">Tomball</h3>
+                        <p class="text-xs text-brand-textDark/50 font-semibold">Full Coverage</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-bgLight p-6 rounded-2xl border border-black/5 flex items-center gap-4 hover:border-brand-copper transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-dark text-brand-copper flex items-center justify-center text-xl font-bold group-hover:bg-brand-copper group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-textDark font-heading">Spring</h3>
+                        <p class="text-xs text-brand-textDark/50 font-semibold">Full Coverage</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-bgLight p-6 rounded-2xl border border-black/5 flex items-center gap-4 hover:border-brand-copper transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-dark text-brand-copper flex items-center justify-center text-xl font-bold group-hover:bg-brand-copper group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-textDark font-heading">Magnolia</h3>
+                        <p class="text-xs text-brand-textDark/50 font-semibold">Full Coverage</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-bgLight p-6 rounded-2xl border border-black/5 flex items-center gap-4 hover:border-brand-copper transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-dark text-brand-copper flex items-center justify-center text-xl font-bold group-hover:bg-brand-copper group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-textDark font-heading">The Woodlands</h3>
+                        <p class="text-xs text-brand-textDark/50 font-semibold">Full Coverage</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-bgLight p-6 rounded-2xl border border-black/5 flex items-center gap-4 hover:border-brand-copper transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-dark text-brand-copper flex items-center justify-center text-xl font-bold group-hover:bg-brand-copper group-hover:text-white transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-brand-textDark font-heading">Richmond</h3>
+                        <p class="text-xs text-brand-textDark/50 font-semibold">Surrounding Areas</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                
+                <!-- Left Direct Contact Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-extrabold text-brand-copper uppercase tracking-widest bg-brand-copper/20 px-4 py-1.5 rounded-full border border-brand-copper/30">Direct Communication</span>
+                        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-4 font-heading leading-tight">
+                            Ready for reliable air comfort?
+                        </h2>
+                        <p class="text-white/80 text-base leading-relaxed mt-4">
+                            Submit a service request or call our local team directly to schedule a technician dispatch.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <a href="tel:7133672038" class="flex items-center gap-5 bg-brand-card p-5 rounded-2xl border border-white/10 hover:border-brand-copper transition duration-300 group">
+                            <div class="w-14 h-14 rounded-2xl bg-brand-copper text-white flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-white/60 uppercase font-semibold">Call Our Dispatch Line</p>
+                                <p class="text-xl font-bold text-white group-hover:text-brand-copper transition font-heading">(713) 367-2038</p>
+                            </div>
+                        </a>
+
+                        <div class="flex items-center gap-5 bg-brand-card p-5 rounded-2xl border border-white/10">
+                            <div class="w-14 h-14 rounded-2xl bg-brand-teal/20 text-brand-tealLight flex items-center justify-center text-2xl font-bold shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-white/60 uppercase font-semibold">Primary Dispatch Location</p>
+                                <p class="text-base font-bold text-white font-heading">Cypress, Texas 77429</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-5 bg-brand-card p-5 rounded-2xl border border-white/10">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-white/60 uppercase font-semibold">State HVAC License</p>
+                                <p class="text-base font-bold text-white font-heading">TACLB License #TACLB27081E</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Service Form Box -->
+                <div class="lg:col-span-7 bg-brand-card p-8 sm:p-12 rounded-3xl border border-white/10 shadow-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-6 font-heading">Schedule HVAC Service or Diagnostic</h3>
+                    
+                    <form id="service-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="name" class="block text-xs font-extrabold uppercase tracking-wider text-white/80">Full Name *</label>
+                                <input type="text" id="name" required class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-brand-copper transition text-sm" placeholder="John Smith">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="phone" class="block text-xs font-extrabold uppercase tracking-wider text-white/80">Phone Number *</label>
+                                <input type="tel" id="phone" required class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-brand-copper transition text-sm" placeholder="(713) 000-0000">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="property-type" class="block text-xs font-extrabold uppercase tracking-wider text-white/80">Property Type</label>
+                                <select id="property-type" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-brand-copper transition text-sm">
+                                    <option value="Residential">Residential Property</option>
+                                    <option value="Commercial">Commercial Property</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="service-type" class="block text-xs font-extrabold uppercase tracking-wider text-white/80">Service Requested</label>
+                                <select id="service-type" class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-brand-copper transition text-sm">
+                                    <option value="Repair">AC / Heating System Repair</option>
+                                    <option value="Installation">System Replacement / Upgrade</option>
+                                    <option value="Maintenance">Seasonal Tune-Up</option>
+                                    <option value="Ductwork">Duct Sealing & Airflow</option>
+                                    <option value="Air Quality">Air Purification / UV</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="message" class="block text-xs font-extrabold uppercase tracking-wider text-white/80">Describe Your HVAC Concern *</label>
+                            <textarea id="message" rows="4" required class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-brand-copper transition text-sm" placeholder="Tell us what symptoms your system is showing..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-copper hover:bg-brand-copperHover text-white font-black py-4 rounded-xl transition shadow-glow-copper text-sm uppercase tracking-wider btn-glow-shimmer cursor-pointer">
+                            Submit Service Request
+                        </button>
+                        
+                        <div id="form-success-msg" class="hidden text-center text-emerald-400 font-bold text-sm p-4 rounded-xl bg-white/5 border border-white/10">
+                            <i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your service request has been received. Our team will contact you right away.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-brand-card text-white max-w-lg w-full p-8 rounded-3xl border border-white/20 shadow-2xl relative transform scale-95 transition-all duration-300">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 text-white transition cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-4">
+                <div class="inline-flex items-center gap-2 bg-brand-copper/20 text-brand-copper px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider border border-brand-copper/30">
+                    <i class="fa-solid fa-bolt"></i> Fast Dispatch Booking
+                </div>
+                <h3 class="text-2xl font-black font-heading text-white">Book Air Solutions Technician</h3>
+                <p class="text-xs text-white/70 leading-relaxed">
+                    Select your preferred schedule below or call directly for emergency cooling repair.
+                </p>
+                <form onsubmit="handleModalSubmit(event)" class="space-y-4 pt-2">
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase text-white/80 mb-1">Your Name</label>
+                        <input type="text" required class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-copper focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase text-white/80 mb-1">Phone Number</label>
+                        <input type="tel" required class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-copper focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase text-white/80 mb-1">Preferred Time</label>
+                        <select class="w-full bg-brand-dark border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-copper focus:outline-none">
+                            <option>Today - Morning Window</option>
+                            <option>Today - Afternoon Window</option>
+                            <option>Tomorrow - Morning Window</option>
+                            <option>Tomorrow - Afternoon Window</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-copper hover:bg-brand-copperHover text-white font-extrabold py-3.5 rounded-xl transition uppercase tracking-wider text-xs shadow-glow-copper cursor-pointer">
+                        Confirm Service Booking
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-brand-dark text-white/50 py-12 border-t border-white/10 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-brand-copper rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                        <i class="fa-solid fa-snowflake"></i>
+                    </div>
+                    <span class="font-bold text-white tracking-tight font-heading text-sm">Air Solutions Air Conditioning & Heating</span>
+                </div>
+                <p class="text-[11px] text-white/40">Serving Cypress, Katy & NW Houston | Texas TACLB #TACLB27081E</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-xs font-extrabold uppercase tracking-wider text-white/70">
+                <a href="#services" class="hover:text-brand-copper transition">Services</a>
+                <a href="#diagnostics" class="hover:text-brand-copper transition">Diagnostics</a>
+                <a href="#calculator" class="hover:text-brand-copper transition">Savings Tool</a>
+                <a href="#comparison" class="hover:text-brand-copper transition">Equipment</a>
+                <a href="#areas" class="hover:text-brand-copper transition">Areas</a>
+            </div>
+
+            <div class="text-[11px] text-white/40 text-center md:text-right">
+                &copy; 2007–2026 Air Solutions AC & Heating. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Navigation Scroll Effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Airflow Ambient Canvas Animation
+        const canvas = document.getElementById('airflowCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.offsetWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = Math.random() * 0.8 + 0.3;
+                    this.vy = (Math.random() - 0.5) * 0.4;
+                    this.radius = Math.random() * 2.5 + 1;
+                    this.alpha = Math.random() * 0.5 + 0.1;
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.y < 0 || this.y > canvas.height) this.reset();
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(98, 182, 176, ${this.alpha})`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < 50; i++) {
+                particles.push(new Particle());
+            }
+
+            function animateCanvas() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateCanvas);
+            }
+            animateCanvas();
+        }
+
+        // 3. Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 4. Interactive Diagnostic Troubleshooting Data Switcher
+        const diagData = {
+            'no-cool': {
+                title: 'Diagnosing: AC Blowing Warm Air',
+                severity: 'High Priority',
+                severityClass: 'bg-red-100 text-red-700',
+                causes: [
+                    'Failed dual-run start/run capacitor',
+                    'Low refrigerant charge due to evaporator/condenser coil leak',
+                    'Tripped breaker or faulty outdoor contactor relay'
+                ],
+                action: 'Perform electrical contactor test, verify outdoor condenser voltage draw, and conduct digital manifold pressure check.'
+            },
+            'no-power': {
+                title: 'Diagnosing: AC Will Not Turn On',
+                severity: 'Urgent',
+                severityClass: 'bg-amber-100 text-amber-800',
+                causes: [
+                    'Full condensate float switch safety shutdown',
+                    'Blown 3-amp or 5-amp furnace control board fuse',
+                    'Faulty wall thermostat or power wiring failure'
+                ],
+                action: 'Clear clogged float switch drain line, test control board transformer voltage output, and verify thermostat wiring.'
+            },
+            'noises': {
+                title: 'Diagnosing: Loud Screeching or Buzzing',
+                severity: 'Mechanical Risk',
+                severityClass: 'bg-orange-100 text-orange-800',
+                causes: [
+                    'Seized fan motor bearings or worn blower motor wheel',
+                    'Arcing outdoor contactor relay contacts',
+                    'High pressure compressor chatter'
+                ],
+                action: 'Shut unit off immediately to prevent motor burnout; inspect blower assembly and outdoor motor bearings.'
+            },
+            'airflow': {
+                title: 'Diagnosing: Weak Airflow from Vents',
+                severity: 'Efficiency Loss',
+                severityClass: 'bg-blue-100 text-blue-800',
+                causes: [
+                    'Heavily clogged MERV air filter restricting intake air',
+                    'Frozen indoor evaporator coil block',
+                    'Disconnected or crushed attic flexible duct segment'
+                ],
+                action: 'Replace air filter, turn system to FAN ONLY to thaw ice buildup, and schedule duct system integrity test.'
+            }
+        };
+
+        function selectDiag(key, btn) {
+            document.querySelectorAll('.diag-btn').forEach(b => {
+                b.classList.remove('bg-brand-dark', 'text-white', 'border-brand-dark');
+                b.classList.add('bg-brand-bgLight', 'text-brand-textDark', 'border-black/10');
+            });
+            btn.classList.remove('bg-brand-bgLight', 'text-brand-textDark', 'border-black/10');
+            btn.classList.add('bg-brand-dark', 'text-white', 'border-brand-dark');
+
+            const item = diagData[key];
+            document.getElementById('diag-title').innerText = item.title;
+            const severityElem = document.getElementById('diag-severity');
+            severityElem.innerText = item.severity;
+            severityElem.className = `text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider ${item.severityClass}`;
+
+            const causesUl = document.getElementById('diag-causes');
+            causesUl.innerHTML = item.causes.map(c => `<li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-red-500"></i> ${c}</li>`).join('');
+
+            document.getElementById('diag-action').innerText = item.action;
+        }
+
+        // 5. Calculator Logic
+        function calculateSavings() {
+            const seer = parseInt(document.getElementById('seer-range').value);
+            const bill = parseInt(document.getElementById('bill-range').value);
+
+            document.getElementById('seer-display').innerText = seer + ' SEER';
+            document.getElementById('bill-display').innerText = '$' + bill + ' / mo';
+
+            const newSeer = 16;
+            const savingsPercent = (1 - (seer / newSeer));
+            const monthlySavings = Math.round(bill * 0.60 * savingsPercent);
+            const annualSavings = monthlySavings * 6; // Peak summer cooling season
+            const fiveYearSavings = annualSavings * 5;
+
+            document.getElementById('annual-savings').innerText = '$' + annualSavings.toLocaleString() + ' / yr';
+            document.getElementById('five-savings').innerText = '$' + fiveYearSavings.toLocaleString();
+        }
+
+        // 6. Modal Control
+        const modal = document.getElementById('booking-modal');
+        function openBookingModal() {
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.children[0].classList.remove('scale-95');
+        }
+        function closeBookingModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.children[0].classList.add('scale-95');
+        }
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            alert('Your appointment request has been submitted! Our dispatch manager will contact you shortly.');
+            closeBookingModal();
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const msg = document.getElementById('form-success-msg');
+            msg.classList.remove('hidden');
+            document.getElementById('service-form').reset();
+            setTimeout(() => msg.classList.add('hidden'), 7000);
+        }
+    </script>
+</body>
+</html>
